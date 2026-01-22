@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The House of Earthmonk | A Culinary Haven</title>
+
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400&display=swap">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400&display=swap"
+        rel="stylesheet">
+
+    <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <!-- Preload Hero Image -->
+    <link rel="preload" as="image"
+        href="https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?auto=format&fit=crop&q=80"
+        fetchpriority="high">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* --- CORE VARIABLES & THEME --- */
+        :root {
+            /* Earthy Rustic Palette */
+            --gold-primary: #D2691E;
+            /* Chocolate/Terracotta - Rustic warmth */
+            --gold-accent: #8FBC8F;
+            /* Sage Green - Nature/Greenery */
+
+            --bg-darkest: #1C1C1C;
+            /* Warm Black/Dark Charcoal */
+            --bg-dark: #262422;
+            /* Dark Warm Brown */
+            --bg-surface: #2E2B29;
+            /* Lighter Warm Brown */
+
+            --text-light: #F4F1DE;
+            /* Eggshell/Beige - Softer than pure white */
+            --text-muted: #B0A8A0;
+            /* Warm grey */
+            --btn-LightB: #3E3B38;
+
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-darkest);
+            color: var(--text-light);
+            font-family: var(--font-body);
+            line-height: 1.8;
+            overflow-x: hidden !important;
+            /* Wood/Grain texture effect */
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: var(--font-heading);
+            color: var(--text-light);
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        h2 {
+            font-size: 3rem;
+        }
+
+        .text-earth {
+            color: var(--gold-primary) !important;
+        }
+
+        .text-sage {
+            color: var(--gold-accent) !important;
+        }
+
+        .text-gradient-earth {
+            background: linear-gradient(45deg, var(--gold-accent), var(--gold-primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        /* Utilities */
+        .section-padding {
+            padding: 120px 0;
+        }
+
+        .z-1 {
+            z-index: 1;
+            position: relative;
+        }
+
+        .z-2 {
+            z-index: 2;
+            position: relative;
+        }
+
+        .overflow-hidden {
+            overflow: hidden;
+        }
+
+        .bannerBtnGroup {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 16px 16px;
+        }
+
+        /* --- BUTTONS --- */
+        .btn-luxury {
+            display: inline-block !important;
+            padding: 15px 40px;
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            background-color: #00000060;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border-radius: 4px;
+            /* Slight rounding for organic feel */
+        }
+
+        .btn-luxury::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background: var(--gold-primary);
+            transition: all 0.4s ease;
+            z-index: -1;
+        }
+
+        .btn-luxury:hover {
+            color: var(--text-light);
+            border-color: var(--gold-primary);
+        }
+
+        .btn-luxury:hover::before {
+            width: 100%;
+        }
+
+        .btn-luxury.filled {
+            background: var(--gold-primary);
+            color: var(--text-light);
+            border: 1px solid var(--gold-primary);
+        }
+
+        .btn-luxury.filled:hover {
+            background: transparent;
+            color: var(--gold-primary);
+        }
+
+        .btn-luxury.filled:hover::before {
+            width: 0%;
+        }
+
+        /* Sage Button Variant */
+        .btn-sage {
+            border-color: var(--gold-accent);
+            color: var(--gold-accent);
+        }
+
+        .btn-sage::before {
+            background: var(--gold-accent);
+        }
+
+        .btn-sage:hover {
+            color: var(--bg-darkest);
+        }
+
+        .btn-sage.filled {
+            background: var(--gold-accent);
+            color: var(--bg-darkest);
+            border-color: var(--gold-accent);
+        }
+
+        .btn-sage.filled:hover {
+            background: transparent;
+            color: var(--gold-accent);
+        }
+
+
+        /* --- NAVBAR --- */
+        .navbar {
+            background: transparent;
+            transition: all 0.4s ease;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .navbar.scrolled {
+            background: rgba(28, 28, 28, 0.95);
+            backdrop-filter: blur(15px);
+            padding: 10px 0;
+            border-bottom: 1px solid var(--gold-primary);
+        }
+
+        .navbar-brand {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .nav-link {
+            font-family: var(--font-body);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
+            color: var(--text-light) !important;
+            padding: 10px 15px !important;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--gold-primary);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::after {
+            width: 80%;
+        }
+
+        /* --- HERO SECTION --- */
+        #hero {
+            height: 100vh;
+            position: relative;
+        }
+
+        .swiper-slide img {
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+            filter: brightness(0.6) contrast(1.1);
+            /* Warmer darker mood */
+            transform: scale(1);
+            transition: transform 8s ease;
+        }
+
+        .swiper-slide-active img {
+            transform: scale(1.1);
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 80%;
+            z-index: 10;
+        }
+
+        .hero-title {
+            font-size: 5vw;
+            line-height: 1.1;
+            margin-bottom: 30px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 40px;
+            color: var(--text-light);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            40% {
+                transform: translateX(-50%) translateY(-20px);
+            }
+
+            60% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+        }
+
+
+        /* --- ABOUT & STATS OVERLAP --- */
+        #about {
+            position: relative;
+            background: var(--bg-dark);
+            overflow-x: hidden !important;
+            max-width: 100%;
+        }
+
+        .about-img-wrapper {
+            position: relative;
+            margin-top: -100px;
+            /* Overlap hero */
+            z-index: 2;
+        }
+
+        #reservation {
+            overflow-x: hidden !important;
+            max-width: 100%;
+        }
+
+        .about-img {
+            width: 100%;
+            border-radius: 5px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .outline-text {
+            font-family: var(--font-heading);
+            font-size: 8rem;
+            font-weight: 900;
+            color: transparent;
+            -webkit-text-stroke: 2px rgba(210, 105, 30, 0.1);
+            position: absolute;
+            top: -60px;
+            left: -20px;
+            z-index: -1;
+            line-height: 0.8;
+        }
+
+        /* --- NEW MENU CARDS --- */
+        .menu-card-v2 {
+            position: relative;
+            height: 450px;
+            border-radius: 0;
+            overflow: hidden;
+            group: '';
+        }
+
+        .menu-card-bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.6s ease;
+            filter: brightness(0.7);
+        }
+
+        .menu-card-v2:hover .menu-card-bg {
+            transform: scale(1.1);
+            filter: brightness(0.5);
+        }
+
+        .menu-card-content {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 40px;
+            background: linear-gradient(to top, var(--bg-darkest), transparent);
+        }
+
+        .menu-card-icon {
+            font-size: 3rem;
+            color: var(--gold-primary);
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .menu-card-desc {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            opacity: 0;
+        }
+
+        .menu-card-v2:hover .menu-card-desc {
+            max-height: 150px;
+            opacity: 1;
+            margin-top: 20px;
+        }
+
+
+        /* --- FANCYBOX GALLERY STYLES --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-gap: 20px;
+        }
+
+        .gallery-item {
+            display: block;
+            position: relative;
+            overflow: hidden;
+            border-radius: 0;
+            aspect-ratio: 1 / 1;
+            /* Perfect squares */
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+            filter: grayscale(40%) sepia(20%);
+            /* Rustic filter */
+        }
+
+        /* UPDATED: Gallery Icon Style */
+        .gallery-overlay-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            font-size: 2rem;
+            color: var(--text-light);
+            z-index: 2;
+            transition: all 0.4s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+            filter: grayscale(0%) sepia(0%);
+        }
+
+        .gallery-item:hover .gallery-overlay-icon {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+
+        /* --- CONTACT FORM & FOOTER --- */
+        #contact {
+            background: linear-gradient(rgba(28, 28, 28, 0.9), rgba(28, 28, 28, 0.95)), url('https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?auto=format&fit=crop&q=80');
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        .glass-form {
+            background: rgba(38, 36, 34, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(210, 105, 30, 0.3);
+            padding: 50px;
+        }
+
+        .form-control,
+        .form-select {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+            padding: 15px;
+            border-radius: 4px;
+        }
+
+        .form-control:focus,
+        .form-select option {
+            color: var(--bg-surface);
+            background-color: var(--gold-primary);
+        }
+
+        .form-control:focus,
+        .form-select:focus {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--gold-primary);
+            box-shadow: none;
+            color: var(--text-light);
+        }
+
+        .footerLink {
+            text-decoration: none;
+            transition: color all 0.3s ease;
+        }
+
+        .footerLink:hover {
+            color: var(--gold-primary) !important;
+        }
+
+        /* Accordion Override */
+        .accordion-item {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .accordion-button {
+            background: transparent;
+            color: var(--text-light);
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            padding: 20px 0;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background: transparent;
+            color: var(--gold-primary);
+            box-shadow: none;
+        }
+
+        .accordion-button::after {
+            filter: invert(1);
+        }
+
+        /* Responsive */
+        @media (max-width: 991px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+
+            .about-img-wrapper {
+                margin-top: 0;
+            }
+
+            .outline-text {
+                font-size: 5rem;
+            }
+
+            .navbar:not(.scrolled) .navbar-collapse {
+                background-color: #1a1a1a;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .btn-luxury {
+                padding: 12px 30px;
+            }
+
+            .hero-title {
+                font-size: 32px;
+                line-height: normal;
+                margin-bottom: 20px;
+            }
+
+            .hero-subtitle {
+                font-size: 24px;
+                margin-bottom: 18px;
+                line-height: 30px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            .h5,
+            h5 {
+                font-size: 18px;
+            }
+
+            .hero-content {
+                width: 90%;
+            }
+
+            .glass-form {
+                padding: 20px;
+            }
+
+            .section-padding {
+                padding: 60px 0;
+            }
+
+            .nav-link::after {
+                left: 0;
+                transform: translateX(0%);
+            }
+        }
+    </style>
+</head>
+
+<body id="top">
+
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#top">
+                <!-- The House of <span class="text-earth">Earthmonk</span> -->
+                <img src="images/logo.png" alt="Logo" class="img-fluid" style="width: 150px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="iconify text-earth fs-3" data-icon="fa6-solid:bars-staggered"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end bg-lg-transparent p-4 p-lg-0 mt-3 mt-lg-0"
+                id="navbarNav">
+                <ul class="navbar-nav align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link" href="#about">Our Story</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#menu">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#galleryNew">Vibe</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item ms-lg-4 mt-3 mt-lg-0">
+                        <a href="#reservation" class="btn btn-luxury filled px-4 py-2">Book Table</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="hero">
+        <div class="swiper heroSwiper h-100">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <!-- Rustic Interior / Greenery -->
+                    <img src="images/banner-image-1.jpg"
+                        alt="Rustic Green Interior">
+                    <div class="hero-content">
+                        <h1 class="hero-title" data-aos="fade-up">The House of <span
+                                class="text-gradient-earth">Earthmonk</span></h1>
+                        <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">A Culinary Haven with a Rustic
+                            Vibe</p>
+                        <div data-aos="fade-up" data-aos-delay="400" class="bannerBtnGroup">
+                            <a href="#menu" class="col-auto btn btn-luxury filled ">View Menu</a>
+                            <a href="https://maps.app.goo.gl/dSgq7DSpVcGoBaSDx" target="_blank"
+                                class="col-auto btn btn-luxury">Visit Us</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <!-- Cozy Food Vibe -->
+                    <img src="images/banner-image-2.jpg"
+                        alt="Cozy Dining">
+                    <div class="hero-content">
+                        <h1 class="hero-title">Nature Inspired <span class="text-gradient-earth">Living</span></h1>
+                        <p class="hero-subtitle">Experience global flavors in a cozy atmosphere.</p>
+                        <a href="#reservation" class="btn btn-luxury filled">Reserve Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <a href="#about" class="text-earth fs-4">
+                <span class="iconify" data-icon="fa6-solid:chevron-down"></span>
+            </a>
+        </div>
+    </section>
+
+    <section id="about" class="section-padding pb-0">
+        <div class="container z-1">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
+                    <div class="about-img-wrapper">
+                        <!-- Rustic Aesthetic Corner -->
+                        <img src="images/our-story-image.webp"
+                            alt="Rustic Aesthetics" class="img-fluid about-img">
+                    </div>
+                </div>
+                <div class="col-lg-6 ps-lg-5 position-relative" data-aos="fade-left">
+                    <span class="outline-text">EST. 2022</span>
+                    <h5 class="text-sage text-uppercase ls-2 mb-3">Our Story</h5>
+                    <h2>A Warm Eatery with a <span class="text-gradient-earth">Rustic Vibe</span>.</h2>
+                    <p class="lead mt-4" style="color: var(--text-muted);">Serving global small plates, Italian pizzas,
+                        and Asian cuisine.</p>
+                    <p class="text-muted mb-5">Known for our aesthetic greenery and cozy atmosphere, The House of
+                        Earthmonk is your escape from the city hustle. Join us for a culinary journey wrapped in
+                        nature's embrace.</p>
+                    <a href="#contact" class="btn btn-luxury">Locate Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="section-padding bg-surface">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h5 class="text-sage text-uppercase ls-2">From Kitchen to Soul</h5>
+                <h2>Menu <span class="text-gradient-earth">Highlights</span></h2>
+            </div>
+
+            <div class="row g-0">
+                <!-- Small Plates -->
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="menu-card-v2">
+                        <!-- Asian / Small Plates Image -->
+                        <div class="menu-card-bg"
+                            style="background-image: url('https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&q=80');">
+                        </div>
+                        <div class="menu-card-content">
+                            <span class="iconify menu-card-icon" data-icon="fa6-solid:bowl-rice"></span>
+                            <h3>Global Small Plates</h3>
+                            <div class="menu-card-desc">
+                                <p class="text-muted mb-0">Charcoal Crispy Veg with Asian Pesto, Lotus Root Bhel,
+                                    Mexican Jalapeno Cheese Balls.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Mains -->
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="menu-card-v2">
+                        <!-- Noodle/Pizza Image -->
+                        <div class="menu-card-bg"
+                            style="background-image: url('https://images.unsplash.com/photo-1574484284008-81dcec800595?auto=format&fit=crop&q=80');">
+                        </div>
+                        <div class="menu-card-content">
+                            <span class="iconify menu-card-icon" data-icon="fa6-solid:pizza-slice"></span>
+                            <h3>Hearty Mains</h3>
+                            <div class="menu-card-desc">
+                                <p class="text-muted mb-0">Green Schezwan Noodles, Khao Suey (Coconut-based soup
+                                    noodles), Burrata Pizza.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Specialty -->
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="menu-card-v2">
+                        <!-- Mediterranean / Dip Image -->
+                        <div class="menu-card-bg"
+                            style="background-image: url('https://images.unsplash.com/photo-1628840042765-356cda07504e?auto=format&fit=crop&q=80');">
+                        </div>
+                        <div class="menu-card-content">
+                            <span class="iconify menu-card-icon" data-icon="fa6-solid:leaf"></span>
+                            <h3>Specialty</h3>
+                            <div class="menu-card-desc">
+                                <p class="text-muted mb-0">Pistachio Zatar Labneh with Fresh Pita. Unique flavors for
+                                    the refined palate.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="galleryNew" class="section-padding position-relative z-1">
+        <div class="container">
+            <div class="row align-items-end mb-5" data-aos="fade-up">
+                <div class="col-lg-6">
+                    <h5 class="text-earth text-uppercase ls-2">The Visual Journey</h5>
+                    <h2>Vibe & <span class="text-gradient-earth">Gallery</span></h2>
+                </div>
+                <div class="col-lg-6 text-lg-end">
+                    <p class="text-muted mb-0">Lush greenery, rustic seating, and aesthetic corners.</p>
+                </div>
+            </div>
+
+            <div class="gallery-grid" data-aos="fade-up" data-aos-delay="200">
+                <!-- Gallery 1: Greenery -->
+                <a href="https://images.unsplash.com/photo-1466781783364-36c955e42a7f?auto=format&fit=crop&q=80"
+                    class="gallery-item" data-fancybox="gallery" data-caption="Aesthetic Greenery">
+                    <img src="https://images.unsplash.com/photo-1466781783364-36c955e42a7f?auto=format&fit=crop&q=80"
+                        alt="Greenery">
+                    <span class="iconify gallery-overlay-icon" data-icon="fa6-solid:magnifying-glass-plus"></span>
+                </a>
+                <!-- Gallery 2: Wood Seating -->
+                <a href="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&q=80"
+                    class="gallery-item" data-fancybox="gallery" data-caption="Rustic Wood Seating">
+                    <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&q=80"
+                        alt="Seating">
+                    <span class="iconify gallery-overlay-icon" data-icon="fa6-solid:magnifying-glass-plus"></span>
+                </a>
+                <!-- Gallery 3: Cozy Corner -->
+                <a href="https://images.unsplash.com/photo-1570554520913-ce219f5c1a55?auto=format&fit=crop&q=80"
+                    class="gallery-item" data-fancybox="gallery" data-caption="Cozy Corners">
+                    <img src="https://images.unsplash.com/photo-1570554520913-ce219f5c1a55?auto=format&fit=crop&q=80"
+                        alt="Cozy Corner">
+                    <span class="iconify gallery-overlay-icon" data-icon="fa6-solid:magnifying-glass-plus"></span>
+                </a>
+                <!-- Gallery 4: Food Detail -->
+                <a href="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?auto=format&fit=crop&q=80"
+                    class="gallery-item" data-fancybox="gallery" data-caption="Global Flavors">
+                    <img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?auto=format&fit=crop&q=80"
+                        alt="Food">
+                    <span class="iconify gallery-overlay-icon" data-icon="fa6-solid:magnifying-glass-plus"></span>
+                </a>
+                <!-- Gallery 5: Pizza -->
+                <a href="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&q=80"
+                    class="gallery-item" data-fancybox="gallery" data-caption="Artisanal Pizza">
+                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&q=80"
+                        alt="Pizza">
+                    <span class="iconify gallery-overlay-icon" data-icon="fa6-solid:magnifying-glass-plus"></span>
+                </a>
+                <!-- Gallery 6: Atmosphere -->
+                <a href="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80"
+                    class="gallery-item" data-fancybox="gallery" data-caption="Warm Ambience">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80"
+                        alt="Ambience">
+                    <span class="iconify gallery-overlay-icon" data-icon="fa6-solid:magnifying-glass-plus"></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="reservation" class="section-padding"
+        style="background: linear-gradient(to bottom, var(--bg-darkest), var(--bg-surface));">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 mb-5 mb-lg-0" data-aos="fade-right">
+                    <h5 class="text-sage text-uppercase ls-2">Need to Know</h5>
+                    <h2 class="mb-5">Frequently Asked <span class="text-gradient-earth">Questions</span></h2>
+
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq1">Do you require reservations?</button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">Walk-ins are welcome, but reservations are
+                                    recommended for weekends to guarantee your favorite spot.</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq2">Is the food spicy?</button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">We offer a range of spice levels. Our Global
+                                    Small Plates often pack a punch, but we can adjust to your preference.</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq3">Where are you located?</button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">We are located at Vasna Bhayli Main Rd, opposite
+                                    Darshanam Splendora, Vasant Vihar, Bhayli, Vadodara, Gujarat.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 offset-lg-1" data-aos="fade-left">
+                    <div class="glass-form">
+                        <h3 class="mb-4">Secure Your Table</h3>
+                        <p class="text-muted mb-4">Book instantly via WhatsApp. We will confirm availability shortly.
+                        </p>
+                        <form id="whatsappForm">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <input type="text" id="wName" class="form-control" placeholder="Your Name" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <input type="tel" id="wPhone" class="form-control" placeholder="Phone Number"
+                                        required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 mb-3">
+                                    <input type="date" id="wDate" class="form-control" required>
+                                </div>
+                                <div class="col-6 mb-3">
+                                    <select id="wGuests" class="form-select">
+                                        <option value="" selected disabled>Guests</option>
+                                        <option value="2">2 People</option>
+                                        <option value="4">4 People</option>
+                                        <option value="6+">6+ People</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <textarea id="wMessage" class="form-control" rows="3"
+                                    placeholder="Special Requests"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-luxury filled w-100 py-3">
+                                <span class="iconify me-2" data-icon="fa6-brands:whatsapp"></span> Request via WhatsApp
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section-padding pb-0">
+        <div class="container" data-aos="fade-up">
+            <div class="row text-center text-lg-start">
+                <div class="col-lg-4 mb-5">
+                    <h3 class="text-earth mb-4">The House of Earthmonk</h3>
+                    <p class="text-muted pe-lg-5">A Culinary Haven with a Rustic Vibe. Experience the best of global
+                        cuisine in Vadodara.</p>
+                </div>
+                <div class="col-lg-4 mb-5">
+                    <h4 class="mb-4">Visit Us</h4>
+                    <p class="text-muted fs-6 mb-3">
+                        Vasna Bhayli Main Rd, opposite Darshanam Splendora, Vasant Vihar, Bhayli, Vadodara, Gujarat.
+                    </p>
+                    <a href="https://maps.app.goo.gl/dSgq7DSpVcGoBaSDx" target="_blank"
+                        class="btn btn-sm btn-outline-light mb-4">
+                        <span class="iconify" data-icon="fa6-solid:location-dot"></span> Get Directions
+                    </a>
+
+                    <h4 class="mb-2 mt-2">Hours</h4>
+                    <p class="text-muted mb-0">Open Daily: 11:00 AM - 11:00 PM</p>
+                </div>
+                <div class="col-lg-4 mb-5">
+                    <h4 class="mb-4">Contact</h4>
+                    <p class="text-earth fs-4 mb-1"><a target="_blank" class="footerLink text-muted"
+                            href="tel:+917016733005">+91 70167 33005</a></p>
+
+                    <div class="mt-5">
+                        <a target="_blank" href="https://www.instagram.com/thehouseof.earthmonk"
+                            class="text-muted me-4 fs-4 footerLink"><span class="iconify"
+                                data-icon="fa6-brands:instagram"></span></a>
+                        <!-- Added harmless placeholders for others -->
+                        <a href="#" class="text-muted me-4 fs-4 footerLink"><span class="iconify"
+                                data-icon="fa6-brands:facebook"></span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5 py-4 border-top border-dark-subtle text-center">
+                <div class="col-12 text-muted small">
+                    © <span id="currunt-year"></span> The House of Earthmonk Developed by <a href="https://shriiitrackingsolution.in/k" target="_blank" class="footerLink text-muted">Shriii Tracking Solution</a>. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        // 1. INITIALIZE AOS (Animations)
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+
+        // 2. NAVBAR SCROLL EFFECT
+        const navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // 3. SWIPER HERO SLIDER
+        const heroSwiper = new Swiper('.heroSwiper', {
+            loop: true,
+            speed: 1000,
+            effect: 'fade',
+            autoplay: { delay: 5000, disableOnInteraction: false },
+        });
+
+        // 4. INITIALIZE FANCYBOX GALLERY
+        Fancybox.bind("[data-fancybox]", {
+            Thumbs: { autoStart: false },
+            Toolbar: {
+                display: {
+                    left: ["infobar"],
+                    middle: [],
+                    right: ["slideshow", "thumbs", "close"],
+                },
+            },
+        });
+
+        // 5. REMOVED STATS COUNTER for this version (not requested)
+
+        // 6. WHATSAPP FORM LOGIC
+        document.getElementById('whatsappForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const name = document.getElementById('wName').value;
+            const phone = document.getElementById('wPhone').value;
+            const date = document.getElementById('wDate').value;
+            const guests = document.getElementById('wGuests').value;
+            const message = document.getElementById('wMessage').value;
+
+            const phoneNumber = "917016733005";
+
+            let text = `*RESERVATION REQUEST*%0A------------------%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Date:* ${date}%0A*Guests:* ${guests}`;
+            if (message) text += `%0A*Note:* ${message}`;
+
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            const url = isMobile
+                ? `https://wa.me/${phoneNumber}?text=${text}`
+                : `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${text}`;
+
+            window.open(url, '_blank');
+        });
+    </script>
+
+    <script>
+        const currentYear = new Date().getFullYear();
+        document.getElementById('currunt-year').innerText = currentYear;
+    </script>
+</body>
+
+</html>
